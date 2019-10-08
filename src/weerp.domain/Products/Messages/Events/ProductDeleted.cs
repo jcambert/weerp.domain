@@ -4,7 +4,7 @@ using System;
 
 namespace weerp.domain.Products.Messages.Events
 {
-    public class ProductDeleted:IEvent
+    public class ProductDeleted:ProductBaseEvent
     {
 
         public Guid Id { get; }

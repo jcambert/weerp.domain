@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace weerp.domain.Products.Messages.Events
 {
-    public class ProductsReleased : IEvent
+    public class ProductsReleased : ProductBaseEvent
     {
         public Guid OrderId { get; set; }
         public IDictionary<Guid, int> Products { get; }

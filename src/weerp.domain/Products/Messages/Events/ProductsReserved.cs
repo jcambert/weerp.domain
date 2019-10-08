@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 namespace weerp.domain.Products.Messages.Events
 {
-    public class ProductsReserved : IEvent
+    public class ProductsReserved : ProductBaseEvent
     {
-        public Guid OrderId { get; set; }
+        public Guid Id { get; set; }
         public IDictionary<Guid, int> Products { get; }
 
         [JsonConstructor]
-        public ProductsReserved(Guid orderId, IDictionary<Guid, int> products)
+        public ProductsReserved(Guid id, IDictionary<Guid, int> products)
         {
-            OrderId = orderId;
+            Id = id;
             Products = products;
         }
     }
