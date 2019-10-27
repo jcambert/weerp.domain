@@ -6,7 +6,7 @@ namespace weerp.domain.Orders.Messsages.Commands
 
     public class CreateOrderDiscount : OrderBaseCommand
     {
-        public override Guid Id { get; }
+        public override Guid Id { get; set; }
         public Guid CustomerId { get; }
         public int Percentage { get; }
 

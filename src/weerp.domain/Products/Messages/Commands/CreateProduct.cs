@@ -6,13 +6,13 @@ namespace weerp.domain.Products.Messages.Commands
     
     public class CreateProduct : ProductBaseCommand
     {
+        public override Guid Id { get; set; }
         public string Name { get; }
         public string Description { get; }
         public string Vendor { get; }
         public decimal Price { get; }
         public int Quantity { get; }
 
-        public override Guid Id { get; }
 
         public CreateProduct(Guid id, string name,
             string description, string vendor,

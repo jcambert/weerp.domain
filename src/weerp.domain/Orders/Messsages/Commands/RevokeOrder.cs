@@ -1,13 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace weerp.domain.Orders.Messsages.Commands
 {
     public class RevokeOrder : OrderBaseCommand
     {
-        public override Guid Id { get; }
+        public override Guid Id { get; set; }
         public Guid CustomerId { get; }
 
         [JsonConstructor]

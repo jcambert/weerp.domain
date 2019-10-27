@@ -4,7 +4,7 @@ using System;
 
 namespace weerp.domain.Settings.Messages.Commands
 {
-    public class CreateSetting : ICommand
+    public class CreateSetting : SettingBaseCommand
     {
         [JsonConstructor]
         public CreateSetting(Guid id,
@@ -25,8 +25,7 @@ namespace weerp.domain.Settings.Messages.Commands
             DoubleValue = doubleValue;
             DateValue = dtValue;
         }
-
-        public Guid Id { get; }
+        public override Guid Id { get; set; }
         public int Numero { get; }
 
         public string Description { get; }
