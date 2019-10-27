@@ -1,9 +1,8 @@
-﻿using MicroS_Common.Messages;
-using System;
+﻿using System;
 
 namespace weerp.domain.Settings.Messages.Events
 {
-    public class SettingCreated : IEvent
+    public class SettingCreated : SettingBaseEvent
     {
         public SettingCreated(Guid id,
            int numero,
