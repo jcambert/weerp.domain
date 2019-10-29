@@ -9,9 +9,12 @@ namespace weerp.domain.Settings
         public static List<SettingDto> Get =>
             new List<SettingDto>()
             {
-                new SettingDto() {Id=Guid.NewGuid(),Numero=1,Type="A",Description="Nom Entreprise"},
-                new SettingDto() {Id=Guid.NewGuid(),Numero=2,Type="A",Description="Logo"},
-                new SettingDto() {Id=Guid.NewGuid(),Numero=3,Type="A",Description="Adresse"}
+                #region Paramtres Generaux
+                new SettingDto() {Id=Guid.NewGuid(),Numero=1,Type="A",Category="General", Description="Nom Entreprise"},
+                new SettingDto() {Id=Guid.NewGuid(),Numero=2,Type="A",Category="General",Description="Logo"},
+                new SettingDto() {Id=Guid.NewGuid(),Numero=3,Type="A",Category="General",Description="Adresse"},
+                #endregion
+
             };
 
     }

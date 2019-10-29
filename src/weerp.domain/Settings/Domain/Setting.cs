@@ -7,6 +7,7 @@ namespace weerp.domain.Settings.Domain
     {
         private string _desc;
         private int _numero;
+        private string _categorie;
         private string _type;
         private string _stringValue;
         private int? _intValue;
@@ -14,6 +15,7 @@ namespace weerp.domain.Settings.Domain
 
         public Setting(Guid id,
             int numero,
+            string categorie,
             string description,
             string type,
             string stringValue,
@@ -22,6 +24,7 @@ namespace weerp.domain.Settings.Domain
             DateTime? dtValue) : base(id)
         {
             SetNumero(numero);
+            SetCategorie(categorie);
             SetDescription(description);
             SetType(type);
             SetStringValue(stringValue);
@@ -29,6 +32,8 @@ namespace weerp.domain.Settings.Domain
             SetDoubleValue(doubleValue);
             SetDateTimeValue(dtValue);
         }
+
+        private void SetCategorie(string categorie) => this.SetProperty(ref _categorie, categorie,  () => this.SetUpdatedDate());
 
         private void SetDateTimeValue(DateTime? dtValue)
         {
@@ -41,13 +46,15 @@ namespace weerp.domain.Settings.Domain
 
         private void SetStringValue(string stringValue) => this.SetProperty(ref _stringValue, stringValue, () => this.SetUpdatedDate());
 
-        private void SetType(string type) => this.SetProperty(ref _type, type?.Trim()?.ToLowerInvariant(), string.IsNullOrEmpty, "empty_setting_type", "Setting type cannot be empty.", () => this.SetUpdatedDate());
+        private void SetType(string type) => this.SetProperty(ref _type, type?.Trim()?.ToLowerInvariant(),  () => this.SetUpdatedDate());
 
-        private void SetDescription(string desc) => this.SetProperty(ref _desc, desc?.Trim()?.ToLowerInvariant(), string.IsNullOrEmpty, "empty_setting_description", "Setting description cannot be empty.", () => this.SetUpdatedDate());
+        private void SetDescription(string desc) => this.SetProperty(ref _desc, desc?.Trim()?.ToLowerInvariant(), () => this.SetUpdatedDate());
 
-        private void SetNumero(int numero) => this.SetProperty(ref _numero, numero, n => n < 0, "empty_setting_number", "Setting number cannot be negative", () => this.SetUpdatedDate());
+        private void SetNumero(int numero) => this.SetProperty(ref _numero, numero, () => this.SetUpdatedDate());
 
         public int Numero { get => _numero; private set { _numero = value; } }
+
+        public string Categorie { get => _categorie; private set { _categorie = value; } }
 
         public string Description { get => _desc; private set { _desc = value; } }
 

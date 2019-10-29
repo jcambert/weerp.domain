@@ -6,6 +6,7 @@ namespace weerp.domain.Settings.Messages.Events
     {
         public SettingCreated(Guid id,
            int numero,
+            string categorie,
            string description,
            string type,
            string stringValue,
@@ -15,6 +16,7 @@ namespace weerp.domain.Settings.Messages.Events
         {
             Id = id;
             Numero = numero;
+            Categorie = categorie;
             Description = description;
             Type = type;
             StringValue = stringValue;
@@ -26,6 +28,8 @@ namespace weerp.domain.Settings.Messages.Events
         public Guid Id { get; }
 
         public int Numero { get; }
+
+        public string Categorie { get; }
 
         public string Description { get; }
 

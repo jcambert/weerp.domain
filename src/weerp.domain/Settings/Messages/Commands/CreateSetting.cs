@@ -9,6 +9,7 @@ namespace weerp.domain.Settings.Messages.Commands
         [JsonConstructor]
         public CreateSetting(Guid id,
             int numero,
+            string categorie,
             string description,
             string type,
             string stringValue,
@@ -18,6 +19,7 @@ namespace weerp.domain.Settings.Messages.Commands
         {
             Id = id;
             Numero = numero;
+            Categorie = categorie;
             Description = description;
             Type = type;
             StringValue = stringValue;
@@ -27,6 +29,8 @@ namespace weerp.domain.Settings.Messages.Commands
         }
         public override Guid Id { get; set; }
         public int Numero { get; }
+
+        public string Categorie { get;  }
 
         public string Description { get; }
 
